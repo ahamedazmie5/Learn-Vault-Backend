@@ -12,9 +12,14 @@ const {
   authUser,
   loginUser,
   getUsersByID,
-} = require("../controllers/userController");
+} = require("../controllers/UserController");
 
-var jwtSecret = "mysecrettoken";
+const dotenv = require("dotenv");
+
+
+dotenv.config();
+
+const jwtSecret = process.env.JWT_SECRET; // Load the JWT secret from the environment variable
 
 router.post("/createUser", createUser);
 router.get("/getAllUsers", getUsers);
